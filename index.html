@@ -5,74 +5,7 @@
 <title>Bazaar O Nomics Feedback</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  text-align: center;
-}
-
-.container {
-  padding: 20px;
-  max-width: 400px;
-  margin: auto;
-}
-
-h1 {
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  margin-bottom: 15px;
-  opacity: 0.8;
-}
-
-.live-rating {
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.stars span {
-  font-size: 30px;
-  cursor: pointer;
-  color: #ccc;
-}
-
-.stars span.active {
-  color: gold;
-}
-
-.emoji {
-  font-size: 40px;
-  margin: 10px 0;
-}
-
-select, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: none;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #ff9800;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #e68900;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -118,6 +51,7 @@ button:hover {
     <option>BAT BALL ADDA</option>
     <option>SPICE AND SIP</option>
     <option>REUSE AND RECYCLE</option>
+
   </select>
 
   <textarea id="text" placeholder="Write feedback..."></textarea>
@@ -127,61 +61,11 @@ button:hover {
 
 <!-- 🔊 SOUND -->
 <audio id="clickSound">
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=click-124467.mp3">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3">
 </audio>
 
-<script>
-let rating = 0;
-const stars = document.querySelectorAll("#stars span");
-const liveRating = document.getElementById("liveRating");
-const emoji = document.getElementById("emoji");
-const sound = document.getElementById("clickSound");
-
-// ⭐ STAR CLICK
-stars.forEach((star, index) => {
-  star.addEventListener("click", () => {
-    rating = index + 1;
-    updateStars();
-    updateEmoji();
-    sound.play();
-  });
-});
-
-function updateStars() {
-  stars.forEach((star, i) => {
-    star.classList.toggle("active", i < rating);
-  });
-  liveRating.innerText = `⭐ ${rating} / 5`;
-}
-
-function updateEmoji() {
-  if (rating == 1) emoji.innerText = "😡";
-  else if (rating == 2) emoji.innerText = "😕";
-  else if (rating == 3) emoji.innerText = "😐";
-  else if (rating == 4) emoji.innerText = "😊";
-  else if (rating == 5) emoji.innerText = "🤩";
-}
-
-// 🚀 SUBMIT
-function submitFeedback() {
-  const stall = document.getElementById("stall").value;
-  const text = document.getElementById("text").value;
-
-  if (!stall || rating === 0) {
-    alert("Please select stall and rating!");
-    return;
-  }
-
-  alert("✅ Feedback Submitted!\n\nStall: " + stall + "\nRating: " + rating + "\nFeedback: " + text);
-
-  // reset
-  rating = 0;
-  updateStars();
-  updateEmoji();
-  document.getElementById("text").value = "";
-  document.getElementById("stall").value = "";
-}
-</script>
+<!-- ✅ IMPORTANT -->
+<script src="script.js"></script>
 
 </body>
 </html>
