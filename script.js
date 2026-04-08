@@ -35,6 +35,7 @@ function saveVotes(votes) {
 
 // 🚀 MAIN
 function submitFeedback() {
+  // This will now work perfectly because #text exists in the HTML
   const text = document.getElementById("text").value;
   const stall = document.getElementById("stall").value;
 
@@ -71,6 +72,7 @@ function submitFeedback() {
 
   // 📲 TELEGRAM MESSAGE
   let msg = `🗳 Bazaar O Nomics Voting\n\n`;
+  msg += `📝 Comment: "${text}"\n\n`; // Added so you can see their feedback
 
   for (let s in votes) {
     msg += `🏪 ${s}: ${votes[s]} votes\n`;
@@ -85,7 +87,7 @@ function submitFeedback() {
       chat_id: CHAT_ID,
       text: msg
     })
-  });
+  }).catch(err => console.error("Telegram error:", err));
 }
 
 window.submitFeedback = submitFeedback;
