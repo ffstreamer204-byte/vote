@@ -3,9 +3,9 @@ let rating = 0;
 const stars = document.querySelectorAll(".stars span");
 const emoji = document.getElementById("emoji");
 const live = document.getElementById("liveRating");
-
 const emojis = ["😡","😕","😐","😊","😍"];
 
+// 1. Star Click Logic
 stars.forEach((star, index) => {
   star.addEventListener("click", () => {
     rating = index + 1;
@@ -33,33 +33,43 @@ function saveVotes(votes) {
   localStorage.setItem("stallVotes", JSON.stringify(votes));
 }
 
-// 🚀 MAIN
+// 🚀 MAIN SUBMISSION
 function submitFeedback() {
-  // This will now work perfectly because #text exists in the HTML
-  const text = document.getElementById("text").value;
-  const stall = document.getElementById("stall").value;
+  // Grab the elements safely
+  const textElement = document.getElementById("text");
+  const stallElement = document.getElementById("stall");
 
-  if (!rating || !text || !stall) {
-    alert("Fill all fields!");
+  // SAFETY CHECK: If the HTML is missing the ID, stop the code and alert the user.
+  if (!textElement || !stallElement) {
+    alert("🚨 CACHE ERROR: Your browser is loading an old HTML file! Please clear your browser cache, or ensure your updated index.html is uploaded correctly to your server.");
     return;
   }
 
-  // ❌ one device one vote
+  // If we made it here, it's 100% safe to read the values.
+  const text = textElement.value;
+  const stall = stallElement.value;
+
+  // Validation
+  if (!rating || !text || !stall) {
+    alert("Please fill all fields, select a stall, and give a star rating!");
+    return;
+  }
+
+  // ❌ One device, one vote
   if (localStorage.getItem("voted")) {
     alert("❌ Already voted from this device!");
     return;
   }
 
+  // Update Storage
   let votes = getVotes();
-
   votes[stall] = (votes[stall] || 0) + 1;
-
   saveVotes(votes);
   localStorage.setItem("voted", true);
 
   alert("✅ Vote Submitted!");
 
-  // 🏆 FIND LEADER
+  // 🏆 Find Leader
   let winner = "";
   let max = 0;
 
@@ -70,9 +80,9 @@ function submitFeedback() {
     }
   }
 
-  // 📲 TELEGRAM MESSAGE
+  // 📲 Send Telegram Message
   let msg = `🗳 Bazaar O Nomics Voting\n\n`;
-  msg += `📝 Comment: "${text}"\n\n`; // Added so you can see their feedback
+  msg += `📝 Comment: "${text}"\n\n`;
 
   for (let s in votes) {
     msg += `🏪 ${s}: ${votes[s]} votes\n`;
