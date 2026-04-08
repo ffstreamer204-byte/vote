@@ -1,69 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Bazaar O Nomics Feedback</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Bazaar O Nomics Feedback</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1>🚀 Bazaar O Nomics</h1>
-    <div class="subtitle">We value your feedback 💬</div>
 
-    <div class="live-rating" id="liveRating">⭐ 0 / 5</div>
-    
-    <div class="emoji" id="emoji">😐</div>
+<div class="container">
+  <h1>🚀 Bazaar O Nomics</h1>
+  <div class="subtitle">We value your feedback 💬</div>
 
-    <div class="stars" id="stars">
-      <span data-value="1">★</span>
-      <span data-value="2">★</span>
-      <span data-value="3">★</span>
-      <span data-value="4">★</span>
-      <span data-value="5">★</span>
-    </div>
+  <div class="live-rating" id="liveRating">⭐ 0 / 5</div>
 
-    <input type="hidden" id="rating" value="0">
-
-    <select id="stall">
-      <option value="">Select Stall</option>
-      <option value="LAKSMI ROOPS">LAKSMI ROOPS</option>
-      <option value="DOODLE BOOTH">DOODLE BOOTH</option>
-      <option value="CHATKARA JUNCTION">CHATKARA JUNCTION</option>
-      <option value="THE COLD SPOT">THE COLD SPOT</option>
-      <option value="GREEN SCRIPTRES">GREEN SCRIPTRES</option>
-      <option value="HEALTHY CHAAT HUB">HEALTHY CHAAT HUB</option>
-      <option value="SWAAD & SINGAR">SWAAD & SINGAR</option>
-      <option value="SUGANDH STATION">SUGANDH STATION</option>
-      <option value="GLAMOUR & GRACE">GLAMOUR & GRACE</option>
-      <option value="BOTTLE BONANZA">BOTTLE BONANZA</option>
-      <option value="HENNA HEAVEN">HENNA HEAVEN</option>
-      <option value="CIRCLE STRIKE">CIRCLE STRIKE</option>
-      <option value="The Radhi's Art">The Radhi's Art</option>
-      <option value="INKVERA">INKVERA</option>
-      <option value="FOOD FIESTA">FOOD FIESTA</option>
-      <option value="BALANCE ZONE">BALANCE ZONE</option>
-      <option value="KALA-KRITI">KALA-KRITI</option>
-      <option value="MASTI KI PATHASHALA">MASTI KI PATHASHALA</option>
-      <option value="BAT BALL ADDA">BAT BALL ADDA</option>
-      <option value="SPICE AND SIP">SPICE AND SIP</option>
-      <option value="REUSE AND RECYCLE">REUSE AND RECYCLE</option>
-      <option value="PLAY TOPIA">PLAY TOPIA</option>
-      <option value="ELITE PRO ARENAS">ELITE PRO ARENAS</option>
-      <option value="CHALLENGE CORNER">CHALLENGE CORNER</option>
-      <option value="SIP & SMILE">SIP & SMILE</option>
-    </select>
-
-    <textarea id="comment" placeholder="Tell us about your experience..."></textarea>
-
-    <button onclick="submitFeedback()">Submit ✨</button>
+  <div class="stars" id="stars">
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
+    <span>★</span>
   </div>
 
-  <audio id="clickSound">
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
-  </audio>
+  <div class="emoji" id="emoji">😐</div>
 
-  <script src="script.js"></script>
+  <select id="stall">
+    <option value="">Select Stall</option>
+    <option value="LAKSMI ROOPS">LAKSMI ROOPS</option>
+    <option value="DOODLE BOOTH">DOODLE BOOTH</option>
+    <option value="CHATKARA JUNCTION">CHATKARA JUNCTION</option>
+    <option value="THE COLD SPOT">THE COLD SPOT</option>
+    <option value="GREEN SCRIPTRES">GREEN SCRIPTRES</option>
+    <option value="HEALTHY CHAAT HUB">HEALTHY CHAAT HUB</option>
+    <option value="SWAAD & SINGAR">SWAAD & SINGAR</option>
+    <option value="SUGANDH STATION">SUGANDH STATION</option>
+    <option value="GLAMOUR & GRACE">GLAMOUR & GRACE</option>
+    <option value="BOTTLE BONANZA">BOTTLE BONANZA</option>
+    <option value="HENNA HEAVEN">HENNA HEAVEN</option>
+    <option value="CIRCLE STRIKE">CIRCLE STRIKE</option>
+    <option value="The Radhi's Art">The Radhi's Art</option>
+    <option value="INKVERA">INKVERA</option>
+    <option value="FOOD FIESTA">FOOD FIESTA</option>
+    <option value="BALANCE ZONE">BALANCE ZONE</option>
+    <option value="KALA-KRITI">KALA-KRITI</option>
+    <option value="MASTI KI PATHASHALA">MASTI KI PATHASHALA</option>
+    <option value="BAT BALL ADDA">BAT BALL ADDA</option>
+    <option value="SPICE AND SIP">SPICE AND SIP</option>
+    <option value="REUSE AND RECYCLE">REUSE AND RECYCLE</option>
+    <option value="PLAY TOPIA">PLAY TOPIA</option>
+    <option value="ELITE PRO ARENAS">ELITE PRO ARENAS</option>
+    <option value="CHALLENGE CORNER">CHALLENGE CORNER</option>
+    <option value="SIP & SMILE">SIP & SMILE</option>
+  </select>
+
+  <textarea id="text" placeholder="Write your feedback here..."></textarea>
+
+  <button onclick="submitFeedback()">Submit ✨</button>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
